@@ -22,7 +22,8 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import { fetchData } from '@/api'
+import api from '@/api'
+
 const tableData = [
   { date: '2016-05-03', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333 },
   { date: '2016-05-02', name: '王1虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333 },
@@ -55,14 +56,14 @@ export default {
     },
   },
   mounted() {
-    fetchData.call(this, {a:1,b:2});
+    this.$dispatch('fetchData', {a:1,b:2});
 
-    console.log(88, this.$refs.table.$refs.bodyWrapper);
+    // console.log(88, this.$refs.table.$refs.bodyWrapper);
     const self = this;
     this.$refs.table.$refs.bodyWrapper.addEventListener('scroll', function() {
       if (this.scrollHeight - this.scrollTop - this.clientHeight < 30) {
         self.tableData.push(...tableData);
-        console.log(1010, self.tableData.length);
+        // console.log(1010, self.tableData.length);
       }
     });
   },
