@@ -11,9 +11,9 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 
 Vue.prototype.$http = axios;
-Vue.prototype.$dispatch = function(type, query) {
-  console.log(2323, this);
-  api[type].call(this, query, this.$dispatch);
+Vue.prototype.$dispatch = function(type, query, dispatch) {
+  console.log(2323, dispatch || this.$dispatch);
+  api[type].call(this, query, dispatch || this.$dispatch);
 };
 
 new Vue({

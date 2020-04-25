@@ -8,7 +8,8 @@ export default  {
     console.log('dispatch getTable');
   },
   fetchData(par, dispatch) {
-    this.$dispatch('getTable', 123);
+    dispatch('getTable', 123, dispatch);
+    // this.$dispatch('getTable', 123);
     console.log('fetchDatas', this.$http, par);
   }
 }

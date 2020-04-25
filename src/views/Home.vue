@@ -22,7 +22,6 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import api from '@/api'
 
 const tableData = [
   { date: '2016-05-03', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333 },
@@ -56,7 +55,19 @@ export default {
     },
   },
   mounted() {
-    this.$dispatch('fetchData', {a:1,b:2});
+    // this.$dispatch('fetchData', {a:1,b:2});
+    this.$http.get('/getPromiss', {params: {id:1}}).then(function(res) {
+      console.log('results', res);
+    });
+    this.$http.post('/some/path', {abbshjshd:1,b:2}).then(function(res) {
+      console.log('results', res);
+    });
+    this.$http.post('/some/path', {c:1,b:2}).then(function(res) {
+      console.log('results', res);
+    });
+    this.$http.post('/user', {a:1,b:2}).then(function(res) {
+      console.log('results', res);
+    });
 
     // console.log(88, this.$refs.table.$refs.bodyWrapper);
     const self = this;
