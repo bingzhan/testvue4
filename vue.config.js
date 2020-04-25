@@ -34,7 +34,9 @@ module.exports = {
           return false;
         }
         console.log(2323, req.url, req.query);
-        handle(req.url.split('?')[0], 'get', JSON.stringify(req.query), res);
+        setTimeout(() => {
+          handle(req.url.split('?')[0], 'get', JSON.stringify(req.query), res);
+        }, 2000)
       });
       app.use(bodyParser.json());
       app.post('/*', bodyParser.json(), function(req, res, next) {
