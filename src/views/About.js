@@ -1,24 +1,30 @@
 
+import Test from './Test.js'
 export default {
   name: 'About',
   data() {
     return {
       tag: 1,
-      abs: 1212,
-      newTodoText: 'bas'
+      age: 12,
+      name: 'ken'
     }
   },
   methods: {
     handle() {
-      console.log(90238923);
+      this.age = this.age + 1;
     }
   },
-  render(h) {
+  render(h, c) {
     const tags = `h${this.tag}`
+    const scopedSlots = {
+      header: (props) => <header>{props.header}</header>,
+      footer: (props) => <footer>{props.footer}</footer>
+    }
     return (
       <div>
-        <input vModel={this.newTodoText} />
-        <tags vOn:click={this.handle}>This is an about page {this.abs}</tags>
+        <elInput vModel={this.name} />
+        <tags vOn:click={this.handle}>This is an about page {this.age}</tags>
+        <Test age={this.age} name={this.name} scopedSlots={scopedSlots}><i>2387</i></Test>
       </div>
     )
   }
