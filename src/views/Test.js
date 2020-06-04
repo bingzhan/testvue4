@@ -1,6 +1,6 @@
 
 const HelloWorld = (context) => {
-  // console.log(99, context);
+  console.log(99, context);
   const { props, data } = context;
   return <p>hello {data.name} {data.age}</p>
 }
@@ -13,7 +13,7 @@ export default {
     }
   },
   render(h) {
-    console.log(232, this.$attrs, this.$slots.default);
+    console.log(232, this.$attrs, this);
     return (
       <div>
         <HelloWorld message={this.$attrs.name} {...this.$attrs} />

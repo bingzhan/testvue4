@@ -24,7 +24,7 @@ export default {
       <div>
         <elInput vModel={this.name} />
         <tags vOn:click={this.handle}>This is an about page {this.age}</tags>
-        <Test age={this.age} name={this.name} scopedSlots={scopedSlots}><i>2387</i></Test>
+        <Test age={this.age} name={this.name} scopedSlots={scopedSlots}><i>2</i><i>2</i></Test>
       </div>
     )
   }
