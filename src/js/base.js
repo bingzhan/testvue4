@@ -1,4 +1,13 @@
 
+// 把十进制转换为二进制
+function dec2bin(dec){
+    return (dec >>> 0).toString(2);
+}
+
+// 把二进制转换为十进制
+function bin2dec(bin){
+    return parseInt(bin, 2).toString(10);
+}
 
 /*
  * 判断obj是否为一个整数
